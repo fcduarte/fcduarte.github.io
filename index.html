@@ -29,10 +29,10 @@
 		    contentType: 'application/json',
 		    data: JSON.stringify(data),
 		    success: function(r) {
-		    	alert(r);
+		    	alert(JSON.stringify(r));
 			},
 		    error: function(r) {
-		    	alert(r);
+		    	alert(JSON.stringify(r));
 			}
 		});
 	}
