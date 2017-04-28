@@ -1,24 +1,41 @@
-<!DOCTYPE html>
 <html>
-  <head>
-	<title>reCAPTCHA demo: Simple page</title>
+<head>
+	<title>Google reCAPTCHA using Node.js demo</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-	 <script>
-		function onStart() {
-	      grecaptcha.execute();
-		}
-	   function onSubmit(token) {
-		alert(token);
-	   }
-	 </script>
-  </head>
-  <body onload="onStart()">
-	<h1>One more step...</h1>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body onload="onStart()">
+	<h1>We need one more aditional verification before we move on...</h1>
 	<div class="g-recaptcha"
-		  data-sitekey="6LcKOB8UAAAAANOhMoCgY9T_FaBBg-_e7qMpEM1y"
+		  data-sitekey="6LfaOh8UAAAAALvEJY-Ii_Zmtlc1j7I4WIHGNv4M"		  
 		  data-callback="onSubmit"
 		  data-size="invisible">
-	</div>
-  </body>
+	</div> 
+ </body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+	function onStart() {
+		setTimeout(function(){ grecaptcha.execute(); }, 1000);      
+	}
+
+	function onSubmit(token) {
+		alert(token);
+		var data = { "g-recaptcha-response" : token };
+
+		$.ajax({
+		    type: "POST",
+		    url: "https://secure-headland-66005.herokuapp.com/submit",
+		    processData: false,
+		    contentType: 'application/json',
+		    data: JSON.stringify(data),
+		    success: function(r) {
+		    	console.log(r);
+			},
+		    error: function(r) {
+		    	console.log(r);
+			}
+		});
+	}
+
+</script>
 </html>
