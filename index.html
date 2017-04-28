@@ -19,12 +19,12 @@
 	}
 
 	function onSubmit(token) {
-		alert(token);
 		var data = { "g-recaptcha-response" : token };
 
 		$.ajax({
 		    type: "POST",
 		    url: "https://secure-headland-66005.herokuapp.com/submit",
+	        crossDomain: true,
 		    processData: false,
 		    contentType: 'application/json',
 		    data: JSON.stringify(data),
