@@ -5,7 +5,7 @@
 	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body onload="onStart()">
-	<h1>We need one more aditional verification before we move on...</h1>
+	<h1>Need one more aditional verification before login...</h1>
 	<div class="g-recaptcha"
 		  data-sitekey="6LfaOh8UAAAAALvEJY-Ii_Zmtlc1j7I4WIHGNv4M"		  
 		  data-callback="onSubmit"
@@ -29,10 +29,10 @@
 		    contentType: 'application/json',
 		    data: JSON.stringify(data),
 		    success: function(r) {
-		    	alert(JSON.stringify(r));
+		    	Handler.handleSuccess(JSON.stringify(r));
 			},
 		    error: function(r) {
-		    	alert(JSON.stringify(r));
+		    	Handler.handleError(JSON.stringify(r));
 			}
 		});
 	}
