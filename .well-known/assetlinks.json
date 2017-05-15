@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.xoom.android.app",
+    "sha256_cert_fingerprints":
+    ["1B:7A:40:1E:B9:CA:E6:B5:79:DF:A3:FE:2B:D5:16:B1:ED:F6:BC:C6:CA:D9:AC:7A:20:EF:79:9F:AA:26:89:70"]
+  }
+}]
